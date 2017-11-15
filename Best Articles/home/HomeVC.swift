@@ -12,13 +12,14 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource {
    
     @IBOutlet weak var articlesTableView: UITableView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
     
     }
-
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
        
@@ -34,7 +35,7 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 375
     }
     
 

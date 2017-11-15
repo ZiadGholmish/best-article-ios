@@ -17,6 +17,10 @@
 		EA1991B71FBB5CDB000A69EC /* Best_ArticlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1991B61FBB5CDB000A69EC /* Best_ArticlesUITests.swift */; };
 		EA1991C91FBB6022000A69EC /* WebsitesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1991C81FBB6022000A69EC /* WebsitesVC.swift */; };
 		EA1991CB1FBB63CC000A69EC /* ArticelItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1991CA1FBB63CC000A69EC /* ArticelItemCell.swift */; };
+		EA21392E1FBCAE9F0072E9BC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21392D1FBCAE9F0072E9BC /* CardView.swift */; };
+		EA2139311FBCBDD00072E9BC /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139301FBCBDD00072E9BC /* ArticleModel.swift */; };
+		EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139321FBCBDE50072E9BC /* CategoryModel.swift */; };
+		EA2139351FBCBDF40072E9BC /* WebsiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		EA1991B81FBB5CDB000A69EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA1991C81FBB6022000A69EC /* WebsitesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsitesVC.swift; sourceTree = "<group>"; };
 		EA1991CA1FBB63CC000A69EC /* ArticelItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticelItemCell.swift; sourceTree = "<group>"; };
+		EA21392D1FBCAE9F0072E9BC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		EA2139301FBCBDD00072E9BC /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		EA2139321FBCBDE50072E9BC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,8 @@
 		EA1991931FBB5CDB000A69EC /* Best Articles */ = {
 			isa = PBXGroup;
 			children = (
+				EA21392F1FBCBDB80072E9BC /* models */,
+				EA21392C1FBCAE850072E9BC /* customviews */,
 				EA1991C71FBB5F7D000A69EC /* mostviwed */,
 				EA1991C61FBB5F6C000A69EC /* websites */,
 				EA1991C51FBB5F60000A69EC /* categories */,
@@ -164,6 +174,24 @@
 			children = (
 			);
 			path = mostviwed;
+			sourceTree = "<group>";
+		};
+		EA21392C1FBCAE850072E9BC /* customviews */ = {
+			isa = PBXGroup;
+			children = (
+				EA21392D1FBCAE9F0072E9BC /* CardView.swift */,
+			);
+			path = customviews;
+			sourceTree = "<group>";
+		};
+		EA21392F1FBCBDB80072E9BC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				EA2139301FBCBDD00072E9BC /* ArticleModel.swift */,
+				EA2139321FBCBDE50072E9BC /* CategoryModel.swift */,
+				EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,9 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1991991FBB5CDB000A69EC /* CategoriesVC.swift in Sources */,
+				EA2139351FBCBDF40072E9BC /* WebsiteModel.swift in Sources */,
 				EA1991951FBB5CDB000A69EC /* AppDelegate.swift in Sources */,
 				EA1991C91FBB6022000A69EC /* WebsitesVC.swift in Sources */,
 				EA1991CB1FBB63CC000A69EC /* ArticelItemCell.swift in Sources */,
+				EA21392E1FBCAE9F0072E9BC /* CardView.swift in Sources */,
+				EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */,
+				EA2139311FBCBDD00072E9BC /* ArticleModel.swift in Sources */,
 				EA1991971FBB5CDB000A69EC /* HomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
