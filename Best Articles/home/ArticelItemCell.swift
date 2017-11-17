@@ -17,6 +17,11 @@ class ArticelItemCell: UITableViewCell{
     @IBOutlet weak var websiteLogo: UIImageView!
     @IBOutlet weak var websiteName: UILabel!
     
-    
+    func setUpData(article: ArticleModel){
+        viewsCountlbl.text = "\(article.impressionist_count) View"
+        articleTitlelbl.text = article.title
+        articleDesclbl.text  = article.content
+        websiteName.text = "By \(article.website.title)"
+    }
     
 }
