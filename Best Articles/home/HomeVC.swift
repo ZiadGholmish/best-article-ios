@@ -12,8 +12,6 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource {
    
     @IBOutlet weak var articlesTableView: UITableView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         articlesTableView.delegate = self
@@ -37,6 +35,8 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 375
     }
+    
+    
     
 
 }

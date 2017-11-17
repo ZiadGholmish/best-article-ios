@@ -23,21 +23,21 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticelItemCell" rowHeight="421" id="W4a-dT-aCf" customClass="ArticelItemCell" customModule="Best_Articles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="421"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticelItemCell" rowHeight="421" id="W4a-dT-aCf" customClass="ArticelItemCell" customModule="Best_Articles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="421"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W4a-dT-aCf" id="RY5-gt-Gsf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="421"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="421"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPq-wT-0SM" customClass="CardView" customModule="Best_Articles">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPq-wT-0SM" customClass="CardView" customModule="Best_Articles">
                                                     <rect key="frame" x="10" y="10" width="355" height="400"/>
                                                     <subviews>
-                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-ui-XEz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                                        <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-ui-XEz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="200"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="website_header" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-SV-bCc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="200"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                 </imageView>
                                                                 <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QKF-EY-tM7">
@@ -58,11 +58,11 @@
                                                                 <constraint firstAttribute="height" constant="200" id="BVl-FR-vl2"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7G-oe-8Xa">
-                                                            <rect key="frame" x="5" y="208" width="325" height="100"/>
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7G-oe-8Xa">
+                                                            <rect key="frame" x="5" y="208" width="341" height="100"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwB-Id-P92">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <string key="text">The title of the articleThe title of the article The title of the article The title of the article The title of the article The title of the article The title of the article  </string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -70,7 +70,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xb-2C-nhb">
-                                                                    <rect key="frame" x="0.0" y="42" width="325" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="42" width="341" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <string key="text">desc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlrdesc of thr aticvlr</string>
                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -78,7 +78,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzr-l7-12G">
-                                                                    <rect key="frame" x="0.0" y="90" width="325" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="90" width="341" height="1"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
@@ -88,7 +88,7 @@
                                                                 <constraint firstAttribute="height" constant="100" id="DAW-wb-icT"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lis-69-1c4">
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lis-69-1c4">
                                                             <rect key="frame" x="5" y="310" width="345" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
@@ -121,8 +121,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="nPq-wT-0SM" secondAttribute="bottom" constant="10" id="NTV-1c-emH"/>
                                                 <constraint firstItem="nPq-wT-0SM" firstAttribute="top" secondItem="RY5-gt-Gsf" secondAttribute="top" constant="10" id="bRg-Ae-bgs"/>
-                                                <constraint firstItem="nPq-wT-0SM" firstAttribute="leading" secondItem="RY5-gt-Gsf" secondAttribute="leading" constant="10" id="eF5-hl-uMY"/>
-                                                <constraint firstAttribute="trailing" secondItem="nPq-wT-0SM" secondAttribute="trailing" constant="10" id="eep-44-h4P"/>
+                                                <constraint firstItem="nPq-wT-0SM" firstAttribute="leading" secondItem="RY5-gt-Gsf" secondAttribute="leading" constant="2" id="eF5-hl-uMY"/>
+                                                <constraint firstAttribute="trailing" secondItem="nPq-wT-0SM" secondAttribute="trailing" constant="2" id="eep-44-h4P"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
