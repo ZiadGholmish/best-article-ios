@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 
+protocol TabSelectedDelegate{
+    func itemSelected(positoin: Int)
+}
+
 class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
     
+     var tabSeelctedDelegate: TabSelectedDelegate?
     private var _categoriesNames: [String] = []
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     var categoriesNames: [String] {
@@ -85,6 +90,10 @@ class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate ,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        tabSeelctedDelegate?.itemSelected(positoin: indexPath.row)
     }
     
 }

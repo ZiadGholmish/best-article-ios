@@ -16,7 +16,7 @@ protocol APIManagerArticlesDelegate{
 }
 
 protocol APIManagerCategoriesDelegate{
-    func articlesReceived(data: Any?, error: NSError?)
+    func categoriesReceived(data: Any?, error: NSError?)
 }
 class APIManager: NSObject{
     
@@ -49,9 +49,9 @@ class APIManager: NSObject{
                 guard let json = response.result.value else{
                     return
                 }
-                self.categoriesDelegate?.articlesReceived(data: json, error: nil)
+                self.categoriesDelegate?.categoriesReceived(data: json, error: nil)
             case .failure(let error):
-                self.categoriesDelegate?.articlesReceived(data: nil, error: error as NSError)
+                self.categoriesDelegate?.categoriesReceived(data: nil, error: error as NSError)
             }
         }
     }

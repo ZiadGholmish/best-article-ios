@@ -8,20 +8,24 @@
 
 import UIKit
 
-class CategoriesVC: UIViewController , APIManagerCategoriesDelegate{
+class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , TabSelectedDelegate {
     
+    @IBOutlet weak var categoriesCollectionView: UICollectionView!
     var categories: [CategoryModel]  = []
+    let cellId = "CategoriesCell"
     
-    let categoriesTab: TabLayout = {
+    lazy var categoriesTab: TabLayout = {
         let cTab = TabLayout()
         cTab.translatesAutoresizingMaskIntoConstraints = false
+        cTab.tabSeelctedDelegate = self
         return cTab
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabLayout()
-      
+        categoriesCollectionView.dataSource = self
+        categoriesCollectionView.delegate = self
         let apiManager = APIManager.init()
         apiManager.categoriesDelegate = self
         apiManager.getCategories()
@@ -37,7 +41,37 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate{
         view.addConstraints(verticalConstraints)
     }
     
-    func articlesReceived(data: Any?, error: NSError?) {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId ,
+                                                         for: indexPath) as? CategoriesCell {
+            let categoryModel = categories[indexPath.row]
+            cell.setArticlesForPage(categoryModel: categoryModel)
+            return cell
+            
+        }else{
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height:  view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func itemSelected(positoin: Int) {
+       let indexPath =  IndexPath(row: positoin, section: 0)
+        categoriesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
+    }
+    
+    func categoriesReceived(data: Any?, error: NSError?) {
         if error != nil {
             print("error \(error!)")
         }
@@ -59,6 +93,7 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate{
             catNames.append(categoryModel.title)
         }
         categoriesTab.categoriesNames = catNames
+        categoriesCollectionView.reloadData()
     }
 }
 

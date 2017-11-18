@@ -27,6 +27,7 @@
 		EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139321FBCBDE50072E9BC /* CategoryModel.swift */; };
 		EA2139351FBCBDF40072E9BC /* WebsiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */; };
 		EA4B2B441FC02DE80082252B /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2B431FC02DE80082252B /* TabCell.swift */; };
+		EA5AA0321FC091A20037DD00 /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5AA0311FC091A20037DD00 /* CategoriesCell.swift */; };
 		EA81C9C21FBF4F8500B6C263 /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81C9C11FBF4F8500B6C263 /* TabLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		EA2139321FBCBDE50072E9BC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteModel.swift; sourceTree = "<group>"; };
 		EA4B2B431FC02DE80082252B /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
+		EA5AA0311FC091A20037DD00 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
 		EA81C9C11FBF4F8500B6C263 /* TabLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
 		FD9A7A6CA1E3672DAC430F84 /* Pods_Best_ArticlesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Best_ArticlesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -216,6 +218,7 @@
 			children = (
 				EA1991981FBB5CDB000A69EC /* CategoriesVC.swift */,
 				EA4B2B431FC02DE80082252B /* TabCell.swift */,
+				EA5AA0311FC091A20037DD00 /* CategoriesCell.swift */,
 			);
 			path = categories;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA1991991FBB5CDB000A69EC /* CategoriesVC.swift in Sources */,
+				EA5AA0321FC091A20037DD00 /* CategoriesCell.swift in Sources */,
 				87737C571FBD981D00998151 /* APIConstants.swift in Sources */,
 				EA2139351FBCBDF40072E9BC /* WebsiteModel.swift in Sources */,
 				EA1991951FBB5CDB000A69EC /* AppDelegate.swift in Sources */,
