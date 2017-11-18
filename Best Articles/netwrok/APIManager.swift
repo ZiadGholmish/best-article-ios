@@ -11,13 +11,17 @@ import Alamofire
 import RxSwift
 
 
-protocol APIManagerDelegate {
-    func dataReceived(data: Any?, error: NSError?)
+protocol APIManagerArticlesDelegate{
+    func articlesReceived(data: Any?, error: NSError?)
 }
 
+protocol APIManagerCategoriesDelegate{
+    func articlesReceived(data: Any?, error: NSError?)
+}
 class APIManager: NSObject{
     
-    var delegate: APIManagerDelegate?
+    var articlesDelegate: APIManagerArticlesDelegate?
+     var categoriesDelegate: APIManagerCategoriesDelegate?
     
     func getArticlesData() {
         
@@ -29,10 +33,28 @@ class APIManager: NSObject{
                 guard let json = response.result.value else{
                     return
                 }
-                self.delegate?.dataReceived(data: json, error: nil)
+                self.articlesDelegate?.articlesReceived(data: json, error: nil)
                 case .failure(let error):
-                self.delegate?.dataReceived(data: nil, error: error as NSError)
+                self.articlesDelegate?.articlesReceived(data: nil, error: error as NSError)
             }
         }
     }
+    
+    func getCategories(){
+        
+        let requestURL: String = APIConstants.BASE_URL + APIConstants.CATEGORIES_URL_PREFIX
+        Alamofire.request(requestURL).responseData{ (response) in
+            switch response.result {
+            case .success:
+                guard let json = response.result.value else{
+                    return
+                }
+                self.categoriesDelegate?.articlesReceived(data: json, error: nil)
+            case .failure(let error):
+                self.categoriesDelegate?.articlesReceived(data: nil, error: error as NSError)
+            }
+        }
+    }
+    
+    
 }

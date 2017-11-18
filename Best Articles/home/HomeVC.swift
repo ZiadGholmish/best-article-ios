@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , APIManagerDelegate {
+class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , APIManagerArticlesDelegate {
     
     @IBOutlet weak var articlesTableView: UITableView!
     var articles: [ArticleModel] = []
@@ -19,7 +19,7 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , API
         articlesTableView.dataSource = self
         
         let apiManager = APIManager.init()
-        apiManager.delegate = self
+        apiManager.articlesDelegate = self
         apiManager.getArticlesData()
     }
     
@@ -42,7 +42,7 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , API
         return 375
     }
     
-    func dataReceived(data: Any?, error: NSError?) {
+    func articlesReceived(data: Any?, error: NSError?) {
         if error != nil {
             print("error \(error!)")
         }

@@ -26,6 +26,8 @@
 		EA2139311FBCBDD00072E9BC /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139301FBCBDD00072E9BC /* ArticleModel.swift */; };
 		EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139321FBCBDE50072E9BC /* CategoryModel.swift */; };
 		EA2139351FBCBDF40072E9BC /* WebsiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */; };
+		EA4B2B441FC02DE80082252B /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4B2B431FC02DE80082252B /* TabCell.swift */; };
+		EA81C9C21FBF4F8500B6C263 /* TabLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81C9C11FBF4F8500B6C263 /* TabLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		EA2139301FBCBDD00072E9BC /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		EA2139321FBCBDE50072E9BC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		EA2139341FBCBDF40072E9BC /* WebsiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteModel.swift; sourceTree = "<group>"; };
+		EA4B2B431FC02DE80082252B /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
+		EA81C9C11FBF4F8500B6C263 /* TabLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLayout.swift; sourceTree = "<group>"; };
 		FD9A7A6CA1E3672DAC430F84 /* Pods_Best_ArticlesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Best_ArticlesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				EA1991981FBB5CDB000A69EC /* CategoriesVC.swift */,
+				EA4B2B431FC02DE80082252B /* TabCell.swift */,
 			);
 			path = categories;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				EA21392D1FBCAE9F0072E9BC /* CardView.swift */,
+				EA81C9C11FBF4F8500B6C263 /* TabLayout.swift */,
 			);
 			path = customviews;
 			sourceTree = "<group>";
@@ -422,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4CF747E4535FF7BE06CC3B3A /* [CP] Check Pods Manifest.lock */ = {
@@ -440,7 +446,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8D4AC55ED5CF14D16243D55 /* [CP] Copy Pods Resources */ = {
@@ -518,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D5BE1F1E1D0E10D6A8D1F080 /* [CP] Copy Pods Resources */ = {
@@ -550,6 +556,8 @@
 				EA1991C91FBB6022000A69EC /* WebsitesVC.swift in Sources */,
 				87737C551FBD980700998151 /* APIManager.swift in Sources */,
 				EA1991CB1FBB63CC000A69EC /* ArticelItemCell.swift in Sources */,
+				EA4B2B441FC02DE80082252B /* TabCell.swift in Sources */,
+				EA81C9C21FBF4F8500B6C263 /* TabLayout.swift in Sources */,
 				EA21392E1FBCAE9F0072E9BC /* CardView.swift in Sources */,
 				EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */,
 				EA2139311FBCBDD00072E9BC /* ArticleModel.swift in Sources */,

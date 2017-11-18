@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class ArticelItemCell: UITableViewCell{
     
     @IBOutlet weak var viewsCountlbl: UILabel!
@@ -22,6 +22,9 @@ class ArticelItemCell: UITableViewCell{
         articleTitlelbl.text = article.title
         articleDesclbl.text  = article.content
         websiteName.text = "By \(article.website.title)"
+        let aritcleURL = URL(string: article.image)!
+        articleImage.kf.setImage(with: aritcleURL)
+        let websiteLogoURL = URL(string: article.website.image)!
+        websiteLogo.kf.setImage(with: websiteLogoURL)
     }
-    
 }
