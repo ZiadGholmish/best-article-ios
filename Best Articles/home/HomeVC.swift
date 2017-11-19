@@ -46,6 +46,22 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , API
         return 375
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedArticle = articles[indexPath.row]
+        performSegue(withIdentifier: "ArticleDetailsVC", sender: selectedArticle)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ArticleDetailsVC" {
+            if let viewController = segue.destination as? ArticleDetailsVC {
+                viewController.selectedArticle = sender as! ArticleModel
+            }
+        }
+    }
+    
     func articlesReceived(data: Any?, error: NSError?) {
         
         contentLoading.isHidden = true

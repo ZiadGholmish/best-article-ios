@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TyP-WY-KlZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TyP-WY-KlZ">
                                 <rect key="frame" x="0.0" y="30" width="375" height="578"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,11 +165,12 @@
                     <connections>
                         <outlet property="articlesTableView" destination="TyP-WY-KlZ" id="07L-TZ-CDk"/>
                         <outlet property="contentLoading" destination="X6e-3M-LIb" id="HQm-Xu-VA1"/>
+                        <segue destination="DLS-59-7YP" kind="show" identifier="ArticleDetailsVC" id="yU4-al-fid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="-1024"/>
+            <point key="canvasLocation" x="743" y="-1004"/>
         </scene>
         <!--Most Viewed-->
         <scene sceneID="w3w-s2-j2a">
@@ -324,6 +325,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAP-Gh-gjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2158" y="-340"/>
+        </scene>
+        <!--Article DetailsVC-->
+        <scene sceneID="zu2-XA-w3R">
+            <objects>
+                <viewController id="DLS-59-7YP" customClass="ArticleDetailsVC" customModule="Best_Articles" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BLf-8d-V48">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-mT-K8f">
+                                <rect key="frame" x="0.0" y="30" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-2e-Uyo">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="VId-Oc-zJw"/>
+                                            <constraint firstAttribute="width" constant="70" id="s3h-dn-QEI"/>
+                                        </constraints>
+                                        <state key="normal" title="Go Back">
+                                            <color key="titleColor" red="0.20784313730000001" green="0.59215686270000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="DLS-59-7YP" eventType="touchUpInside" id="Qku-eb-xx7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The title of the article " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvX-rY-MQA">
+                                        <rect key="frame" x="80" y="0.0" width="235" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-Ew-dew">
+                                        <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="wNK-Y5-5Mp"/>
+                                        </constraints>
+                                        <state key="normal" title="Share"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Vp-ET-vLO"/>
+                                </constraints>
+                            </stackView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-5Y-Rzv">
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nw5-5Y-Rzv" firstAttribute="bottom" secondItem="mP6-7w-ub0" secondAttribute="bottom" id="51b-z0-MWg"/>
+                            <constraint firstItem="nw5-5Y-Rzv" firstAttribute="trailing" secondItem="mP6-7w-ub0" secondAttribute="trailing" id="5s1-ol-zPH"/>
+                            <constraint firstItem="nw5-5Y-Rzv" firstAttribute="top" secondItem="mP6-7w-ub0" secondAttribute="top" constant="55" id="T0W-1r-eKI"/>
+                            <constraint firstItem="nw5-5Y-Rzv" firstAttribute="leading" secondItem="mP6-7w-ub0" secondAttribute="leading" id="kWk-2z-hUD"/>
+                            <constraint firstItem="eu3-mT-K8f" firstAttribute="top" secondItem="BLf-8d-V48" secondAttribute="top" constant="30" id="vyf-Xm-l6H"/>
+                            <constraint firstItem="mP6-7w-ub0" firstAttribute="trailing" secondItem="eu3-mT-K8f" secondAttribute="trailing" id="xkQ-Vj-fb9"/>
+                            <constraint firstItem="eu3-mT-K8f" firstAttribute="leading" secondItem="mP6-7w-ub0" secondAttribute="leading" id="zW6-Zi-7e8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mP6-7w-ub0"/>
+                    </view>
+                    <connections>
+                        <outlet property="artcileTitle" destination="cvX-rY-MQA" id="Y3Q-Dh-hVD"/>
+                        <outlet property="btnBack" destination="7ch-2e-Uyo" id="aSb-nI-1UH"/>
+                        <outlet property="btnShare" destination="MFg-Ew-dew" id="7g7-6a-9gZ"/>
+                        <outlet property="webView" destination="nw5-5Y-Rzv" id="k0X-rK-KQC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGr-wY-SIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2872.8000000000002" y="-340.47976011994007"/>
         </scene>
         <!--Websties-->
         <scene sceneID="BwJ-Kw-Xcx">
