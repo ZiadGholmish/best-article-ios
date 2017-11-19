@@ -12,6 +12,8 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
    
+    @IBOutlet weak var contentLoading: UIActivityIndicatorView!
+    
     var categories: [CategoryModel]  = []
     let cellId = "CategoriesCell"
     
@@ -24,6 +26,7 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentLoading.isHidden = false
         setupTabLayout()
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
@@ -66,12 +69,22 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
         return 0
     }
     
+
+    // Called when the cell is displayed
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        categoriesTab.selectITemAtPosition(position:  indexPath.row)
+        
+    }
+    
+  
     func itemSelected(positoin: Int) {
        let indexPath =  IndexPath(row: positoin, section: 0)
         categoriesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
     }
     
     func categoriesReceived(data: Any?, error: NSError?) {
+         contentLoading.isHidden = true
         if error != nil {
             print("error \(error!)")
         }

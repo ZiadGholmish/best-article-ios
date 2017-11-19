@@ -16,7 +16,7 @@ class TabCell: UICollectionViewCell {
         ul.translatesAutoresizingMaskIntoConstraints = false
         ul.text = "PlaceHolder"
         ul.textAlignment = .center
-        ul.textColor = UIColor.blue
+        ul.textColor = UIColor.white
         return ul
     }()
     
@@ -41,12 +41,9 @@ class TabCell: UICollectionViewCell {
     
     override var isHighlighted: Bool{
         didSet{
-          
             if isHighlighted {
-                catName.textColor =  UIColor.white
-                catName.font =  catName.font.withSize(20)
+                catName.font =  catName.font.withSize(28)
             }else{
-                catName.textColor =   UIColor.blue
                 catName.font =  catName.font.withSize(15)
             }
         }
@@ -55,10 +52,8 @@ class TabCell: UICollectionViewCell {
     override var isSelected: Bool{
         didSet{
             if isSelected {
-                catName.textColor =  UIColor.white
-                catName.font =  catName.font.withSize(20)
+                catName.font =  catName.font.withSize(28)
             }else{
-                catName.textColor =   UIColor.blue
                  catName.font =  catName.font.withSize(15)
             }
         }

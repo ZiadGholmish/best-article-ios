@@ -9,12 +9,16 @@
 import UIKit
 
 class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , APIManagerArticlesDelegate {
+  
+    @IBOutlet weak var contentLoading: UIActivityIndicatorView!
     
     @IBOutlet weak var articlesTableView: UITableView!
+    
     var articles: [ArticleModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    contentLoading.isHidden = false
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
         
@@ -43,6 +47,8 @@ class HomeVC : UIViewController, UITableViewDelegate,UITableViewDataSource , API
     }
     
     func articlesReceived(data: Any?, error: NSError?) {
+        
+        contentLoading.isHidden = true
         if error != nil {
             print("error \(error!)")
         }

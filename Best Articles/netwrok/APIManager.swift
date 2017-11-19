@@ -23,11 +23,17 @@ protocol APIManagerWebsitesDelegate{
     func websitesReceived(data: Any?, error: NSError?)
 }
 
+protocol APIManagerMostViewedDelegate{
+    func mostViewwedReceived(data: Any?, error: NSError?)
+}
+
+
 class APIManager: NSObject{
     
     var articlesDelegate: APIManagerArticlesDelegate?
     var categoriesDelegate: APIManagerCategoriesDelegate?
     var websitesDelagate: APIManagerWebsitesDelegate?
+       var mostViewedDelagate: APIManagerMostViewedDelegate?
     func getArticlesData() {
         
         let requestURL: String = APIConstants.BASE_URL + APIConstants.ARTICLES_URL_PREFIX
@@ -74,5 +80,20 @@ class APIManager: NSObject{
         }
     }
     
+    
+    func getMostViewed(){
+        let requestURL: String = APIConstants.BASE_URL + APIConstants.MOST_VIEWS_ARTICLES_PREFIX
+        Alamofire.request(requestURL).responseData{ (response) in
+            switch response.result {
+            case .success:
+                guard let json = response.result.value else{
+                    return
+                }
+                self.mostViewedDelagate?.mostViewwedReceived(data: json, error: nil)
+            case .failure(let error):
+                self.mostViewedDelagate?.mostViewwedReceived(data: nil, error: error as NSError)
+            }
+        }
+    }
     
 }

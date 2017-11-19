@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+class BaseController: UIViewController{
+    
+    
+    func showLoading()  {
+        
+    }
+    
+}
