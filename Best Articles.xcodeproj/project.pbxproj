@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7D78B480C63F688F01E22A8C /* Pods_Best_Articles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14744C50A5016F99AE2DDDC0 /* Pods_Best_Articles.framework */; };
 		873CECA21FC18A2700C861A7 /* WebsiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CECA11FC18A2700C861A7 /* WebsiteCell.swift */; };
+		873CECA41FC1A8F300C861A7 /* MostViewedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CECA31FC1A8F300C861A7 /* MostViewedVC.swift */; };
+		873CECA71FC1B91800C861A7 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873CECA61FC1B91800C861A7 /* BaseController.swift */; };
 		87737C551FBD980700998151 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87737C541FBD980700998151 /* APIManager.swift */; };
 		87737C571FBD981D00998151 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87737C561FBD981D00998151 /* APIConstants.swift */; };
 		A488DAA79617811C1CDCF192 /* Pods_Best_ArticlesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FDA2E5EB91F8A218E73699 /* Pods_Best_ArticlesUITests.framework */; };
@@ -58,6 +60,8 @@
 		59B00C5AD8C608EF63F2E3D1 /* Pods-Best ArticlesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Best ArticlesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Best ArticlesTests/Pods-Best ArticlesTests.release.xcconfig"; sourceTree = "<group>"; };
 		640846CAB749F34AA6B51BA2 /* Pods-Best ArticlesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Best ArticlesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Best ArticlesTests/Pods-Best ArticlesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		873CECA11FC18A2700C861A7 /* WebsiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteCell.swift; sourceTree = "<group>"; };
+		873CECA31FC1A8F300C861A7 /* MostViewedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MostViewedVC.swift; path = "Best Articles/websites/MostViewedVC.swift"; sourceTree = SOURCE_ROOT; };
+		873CECA61FC1B91800C861A7 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		87737C541FBD980700998151 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		87737C561FBD981D00998151 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D37A58447BF71228A4DD0C7C /* Pods-Best Articles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Best Articles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Best Articles/Pods-Best Articles.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +132,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		873CECA51FC1B90500C861A7 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				873CECA61FC1B91800C861A7 /* BaseController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		87737C521FBD97E900998151 /* netwrok */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 		EA1991931FBB5CDB000A69EC /* Best Articles */ = {
 			isa = PBXGroup;
 			children = (
+				873CECA51FC1B90500C861A7 /* base */,
 				87737C521FBD97E900998151 /* netwrok */,
 				EA21392F1FBCBDB80072E9BC /* models */,
 				EA21392C1FBCAE850072E9BC /* customviews */,
@@ -237,6 +250,7 @@
 		EA1991C71FBB5F7D000A69EC /* mostviwed */ = {
 			isa = PBXGroup;
 			children = (
+				873CECA31FC1A8F300C861A7 /* MostViewedVC.swift */,
 			);
 			path = mostviwed;
 			sourceTree = "<group>";
@@ -564,12 +578,14 @@
 				EA1991951FBB5CDB000A69EC /* AppDelegate.swift in Sources */,
 				EA1991C91FBB6022000A69EC /* WebsitesVC.swift in Sources */,
 				873CECA21FC18A2700C861A7 /* WebsiteCell.swift in Sources */,
+				873CECA71FC1B91800C861A7 /* BaseController.swift in Sources */,
 				87737C551FBD980700998151 /* APIManager.swift in Sources */,
 				EA1991CB1FBB63CC000A69EC /* ArticelItemCell.swift in Sources */,
 				EA4B2B441FC02DE80082252B /* TabCell.swift in Sources */,
 				EA81C9C21FBF4F8500B6C263 /* TabLayout.swift in Sources */,
 				EA21392E1FBCAE9F0072E9BC /* CardView.swift in Sources */,
 				EA2139331FBCBDE50072E9BC /* CategoryModel.swift in Sources */,
+				873CECA41FC1A8F300C861A7 /* MostViewedVC.swift in Sources */,
 				EA2139311FBCBDD00072E9BC /* ArticleModel.swift in Sources */,
 				EA1991971FBB5CDB000A69EC /* HomeVC.swift in Sources */,
 			);

@@ -35,7 +35,7 @@ class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate ,
         cv.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .horizontal
         cv.collectionViewLayout = layout
-        cv.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        cv.backgroundColor = UIColor(red:  CGFloat(64/255.0), green:  CGFloat(97/255.0), blue:   CGFloat(196/255.0), alpha: 1)
         cv.allowsMultipleSelection = false
         cv.dataSource = self
         cv.delegate = self
@@ -73,7 +73,6 @@ class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate ,
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return _categoriesNames.count
     }
@@ -94,6 +93,12 @@ class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate ,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         tabSeelctedDelegate?.itemSelected(positoin: indexPath.row)
+    }
+    
+    func selectITemAtPosition(position: Int)  {
+        let indexPath = IndexPath(item: position, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
     }
     
 }

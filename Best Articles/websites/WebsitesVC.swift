@@ -15,6 +15,7 @@ class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDel
     var websites: [WebsiteModel]  = []
     let cellId = "WebsiteCell"
     
+    @IBOutlet weak var contentLoading: UIActivityIndicatorView!
     lazy var websitesTab: TabLayout = {
         let cTab = TabLayout()
         cTab.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +24,8 @@ class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDel
     }()
     
     override func viewDidLoad() {
+         super.viewDidLoad()
+        contentLoading.isHidden = false
         setupTabLayout()
         websitesCollectionView.dataSource = self
         websitesCollectionView.delegate = self
@@ -71,9 +74,13 @@ class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDel
         websitesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
     }
     
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        websitesTab.selectITemAtPosition(position: indexPath.row)
+    }
     
     func websitesReceived(data: Any?, error: NSError?) {
-        
+         contentLoading.isHidden = true
         if error != nil {
             print("error \(error!)")
         }
