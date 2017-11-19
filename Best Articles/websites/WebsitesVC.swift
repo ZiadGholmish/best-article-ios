@@ -79,6 +79,14 @@ class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDel
         websitesTab.selectITemAtPosition(position: indexPath.row)
     }
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let screenWidth = view.frame.width
+        let position: Int =  Int(targetContentOffset.pointee.x / screenWidth)
+        
+        print(position)
+        websitesTab.selectITemAtPosition(position: position)
+    }
+    
     func websitesReceived(data: Any?, error: NSError?) {
          contentLoading.isHidden = true
         if error != nil {

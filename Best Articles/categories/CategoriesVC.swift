@@ -69,15 +69,12 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
         return 0
     }
     
-
-    // Called when the cell is displayed
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        categoriesTab.selectITemAtPosition(position:  indexPath.row)
-        
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let screenWidth = view.frame.width
+        let position: Int =  Int(targetContentOffset.pointee.x / screenWidth)
+        categoriesTab.selectITemAtPosition(position: position)
     }
     
-  
     func itemSelected(positoin: Int) {
        let indexPath =  IndexPath(row: positoin, section: 0)
         categoriesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
