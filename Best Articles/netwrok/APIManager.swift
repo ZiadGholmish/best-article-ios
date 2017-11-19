@@ -18,11 +18,16 @@ protocol APIManagerArticlesDelegate{
 protocol APIManagerCategoriesDelegate{
     func categoriesReceived(data: Any?, error: NSError?)
 }
+
+protocol APIManagerWebsitesDelegate{
+    func websitesReceived(data: Any?, error: NSError?)
+}
+
 class APIManager: NSObject{
     
     var articlesDelegate: APIManagerArticlesDelegate?
-     var categoriesDelegate: APIManagerCategoriesDelegate?
-    
+    var categoriesDelegate: APIManagerCategoriesDelegate?
+    var websitesDelagate: APIManagerWebsitesDelegate?
     func getArticlesData() {
         
         let requestURL: String = APIConstants.BASE_URL + APIConstants.ARTICLES_URL_PREFIX
@@ -50,6 +55,21 @@ class APIManager: NSObject{
                 self.categoriesDelegate?.categoriesReceived(data: json, error: nil)
             case .failure(let error):
                 self.categoriesDelegate?.categoriesReceived(data: nil, error: error as NSError)
+            }
+        }
+    }
+    
+    func getWebsites(){
+        let requestURL: String = APIConstants.BASE_URL + APIConstants.WEBSITES_URL_PREFIX
+        Alamofire.request(requestURL).responseData{ (response) in
+            switch response.result {
+            case .success:
+                guard let json = response.result.value else{
+                    return
+                }
+                self.websitesDelagate?.websitesReceived(data: json, error: nil)
+            case .failure(let error):
+                self.websitesDelagate?.websitesReceived(data: nil, error: error as NSError)
             }
         }
     }

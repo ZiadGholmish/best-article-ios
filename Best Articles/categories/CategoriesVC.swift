@@ -11,6 +11,7 @@ import UIKit
 class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , TabSelectedDelegate {
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
+   
     var categories: [CategoryModel]  = []
     let cellId = "CategoriesCell"
     

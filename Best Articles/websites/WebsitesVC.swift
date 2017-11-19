@@ -8,18 +8,96 @@
 
 import UIKit
 
-class WebsitesVC: UIViewController {
+class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet weak var websitesCollectionView: UICollectionView!
+    
+    var websites: [WebsiteModel]  = []
+    let cellId = "WebsiteCell"
+    
+    lazy var websitesTab: TabLayout = {
+        let cTab = TabLayout()
+        cTab.translatesAutoresizingMaskIntoConstraints = false
+        cTab.tabSeelctedDelegate = self
+        return cTab
+    }()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setupTabLayout()
+        websitesCollectionView.dataSource = self
+        websitesCollectionView.delegate = self
+        let apiManager = APIManager.init()
+        apiManager.websitesDelagate = self
+        apiManager.getWebsites()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupTabLayout() {
+        view.addSubview(websitesTab)
+        let views = ["v0" : websitesTab]
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: [], metrics:nil, views: views)
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat:
+            "V:|-30-[v0(50)]|", options: [], metrics:nil, views: views)
+        view.addConstraints(horizontalConstraints)
+        view.addConstraints(verticalConstraints)
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return websites.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId ,
+                                                         for: indexPath) as? WebsiteCell {
+            let websiteModel = websites[indexPath.row]
+            cell.setArticlesForPage(website: websiteModel)
+            return cell
+            
+        }else{
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height:  view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func itemSelected(positoin: Int) {
+        let indexPath =  IndexPath(row: positoin, section: 0)
+        websitesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
+    }
+    
+    
+    func websitesReceived(data: Any?, error: NSError?) {
+        
+        if error != nil {
+            print("error \(error!)")
+        }
+        guard let data = data else{
+            print("error data is null")
+            return
+        }
+        do{
+            try websites = JSONDecoder().decode([WebsiteModel].self, from: data as! Data )
+            setupWebsitesNames()
+        }catch let jsonError {
+            print(jsonError)
+        }
+    }
+    
+    func setupWebsitesNames(){
+        var websitesNames: [String] = []
+        for websiteModel in websites {
+            websitesNames.append(websiteModel.title)
+        }
+        websitesTab.categoriesNames = websitesNames
+        websitesCollectionView.reloadData()
+    }
+    
+    
+    
 }
