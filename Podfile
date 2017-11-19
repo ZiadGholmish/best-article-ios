@@ -6,6 +6,8 @@ target 'Best Articles' do
   use_frameworks!
   pod 'Alamofire', '~> 4.5'
   pod 'RxSwift',    '~> 4.0'
+  pod 'Kingfisher', '~> 4.0'
+  use_frameworks!
 
   target 'Best ArticlesTests' do
     inherit! :search_paths
