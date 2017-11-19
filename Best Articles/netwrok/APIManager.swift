@@ -26,8 +26,7 @@ class APIManager: NSObject{
     func getArticlesData() {
         
         let requestURL: String = APIConstants.BASE_URL + APIConstants.ARTICLES_URL_PREFIX
-        
-        Alamofire.request(requestURL).responseData{ (response) in
+          Alamofire.request(requestURL).responseData{ (response) in
             switch response.result {
             case .success:
                 guard let json = response.result.value else{
@@ -41,7 +40,6 @@ class APIManager: NSObject{
     }
     
     func getCategories(){
-        
         let requestURL: String = APIConstants.BASE_URL + APIConstants.CATEGORIES_URL_PREFIX
         Alamofire.request(requestURL).responseData{ (response) in
             switch response.result {

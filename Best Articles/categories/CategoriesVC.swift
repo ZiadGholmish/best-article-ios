@@ -41,7 +41,6 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
         view.addConstraints(verticalConstraints)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }

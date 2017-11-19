@@ -15,7 +15,7 @@ protocol TabSelectedDelegate{
 
 class TabLayout: UIView, UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
     
-     var tabSeelctedDelegate: TabSelectedDelegate?
+    var tabSeelctedDelegate: TabSelectedDelegate?
     private var _categoriesNames: [String] = []
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     var categoriesNames: [String] {
