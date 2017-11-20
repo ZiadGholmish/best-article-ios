@@ -11,7 +11,6 @@ import UIKit
 class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , TabSelectedDelegate {
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
-   
     @IBOutlet weak var contentLoading: UIActivityIndicatorView!
     
     var categories: [CategoryModel]  = []

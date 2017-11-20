@@ -8,11 +8,10 @@
 
 import Foundation
 import UIKit
-class ArticleDetailsVC: UIViewController {
+class ArticleDetailsVC: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet weak var btnBack: UIButton!
-    @IBOutlet weak var artcileTitle: UILabel!
-    @IBOutlet weak var btnShare: UIButton!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var webView: UIWebView!
     private var _selectedArticle: ArticleModel!
     var selectedArticle: ArticleModel{
@@ -25,14 +24,25 @@ class ArticleDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    artcileTitle.text = selectedArticle.title
+        webView.delegate = self
+        loadingView.isHidden = false
+        navigationBar.topItem?.title = selectedArticle.title
         let url = URL (string: selectedArticle.source_url)
         let request = URLRequest(url: url!)
         webView.loadRequest(request)
         
     }
-    @IBAction func goBack(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    
+    @IBAction func closeScreen(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func shareArticle(_ sender: Any) {
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        loadingView.isHidden = true
+    }
+    
     
 }

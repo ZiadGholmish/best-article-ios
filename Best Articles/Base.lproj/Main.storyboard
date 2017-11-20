@@ -305,7 +305,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-kh-SuT">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-kh-SuT">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -324,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAP-Gh-gjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2158" y="-340"/>
+            <point key="canvasLocation" x="1546" y="-196"/>
         </scene>
         <!--Article DetailsVC-->
         <scene sceneID="zu2-XA-w3R">
@@ -337,48 +337,52 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-mT-K8f">
                                 <rect key="frame" x="0.0" y="30" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-2e-Uyo">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFG-4W-oAq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="VId-Oc-zJw"/>
-                                            <constraint firstAttribute="width" constant="70" id="s3h-dn-QEI"/>
+                                            <constraint firstAttribute="height" constant="50" id="1VF-Qo-sIU"/>
                                         </constraints>
-                                        <state key="normal" title="Go Back">
-                                            <color key="titleColor" red="0.20784313730000001" green="0.59215686270000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goBack:" destination="DLS-59-7YP" eventType="touchUpInside" id="Qku-eb-xx7"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The title of the article " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvX-rY-MQA">
-                                        <rect key="frame" x="80" y="0.0" width="235" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-Ew-dew">
-                                        <rect key="frame" x="325" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="wNK-Y5-5Mp"/>
-                                        </constraints>
-                                        <state key="normal" title="Share"/>
-                                    </button>
+                                        <items>
+                                            <navigationItem title="Article Details" id="Ry7-yh-LV5">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Lib-fg-gk2">
+                                                    <connections>
+                                                        <action selector="closeScreen:" destination="DLS-59-7YP" id="t7L-gP-FFS"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="action" id="NYs-y4-rRf">
+                                                    <connections>
+                                                        <action selector="shareArticle:" destination="DLS-59-7YP" id="Kfm-7a-67Z"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="aFG-4W-oAq" firstAttribute="leading" secondItem="eu3-mT-K8f" secondAttribute="leading" id="1eq-8a-lqo"/>
                                     <constraint firstAttribute="height" constant="50" id="2Vp-ET-vLO"/>
+                                    <constraint firstAttribute="trailing" secondItem="aFG-4W-oAq" secondAttribute="trailing" id="BbQ-FO-uux"/>
+                                    <constraint firstItem="aFG-4W-oAq" firstAttribute="top" secondItem="eu3-mT-K8f" secondAttribute="top" id="eC7-1j-jjd"/>
                                 </constraints>
                             </stackView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-5Y-Rzv">
                                 <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-6V-9v6">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8nR-6V-9v6" firstAttribute="centerY" secondItem="BLf-8d-V48" secondAttribute="centerY" id="4kK-hO-1i4"/>
                             <constraint firstItem="nw5-5Y-Rzv" firstAttribute="bottom" secondItem="mP6-7w-ub0" secondAttribute="bottom" id="51b-z0-MWg"/>
                             <constraint firstItem="nw5-5Y-Rzv" firstAttribute="trailing" secondItem="mP6-7w-ub0" secondAttribute="trailing" id="5s1-ol-zPH"/>
                             <constraint firstItem="nw5-5Y-Rzv" firstAttribute="top" secondItem="mP6-7w-ub0" secondAttribute="top" constant="55" id="T0W-1r-eKI"/>
+                            <constraint firstItem="8nR-6V-9v6" firstAttribute="centerX" secondItem="BLf-8d-V48" secondAttribute="centerX" id="fg6-12-gbZ"/>
+                            <constraint firstItem="8nR-6V-9v6" firstAttribute="centerX" secondItem="BLf-8d-V48" secondAttribute="centerX" id="iEw-fg-Eh1"/>
                             <constraint firstItem="nw5-5Y-Rzv" firstAttribute="leading" secondItem="mP6-7w-ub0" secondAttribute="leading" id="kWk-2z-hUD"/>
+                            <constraint firstItem="8nR-6V-9v6" firstAttribute="centerY" secondItem="BLf-8d-V48" secondAttribute="centerY" id="tMp-8t-bYE"/>
                             <constraint firstItem="eu3-mT-K8f" firstAttribute="top" secondItem="BLf-8d-V48" secondAttribute="top" constant="30" id="vyf-Xm-l6H"/>
                             <constraint firstItem="mP6-7w-ub0" firstAttribute="trailing" secondItem="eu3-mT-K8f" secondAttribute="trailing" id="xkQ-Vj-fb9"/>
                             <constraint firstItem="eu3-mT-K8f" firstAttribute="leading" secondItem="mP6-7w-ub0" secondAttribute="leading" id="zW6-Zi-7e8"/>
@@ -386,15 +390,14 @@
                         <viewLayoutGuide key="safeArea" id="mP6-7w-ub0"/>
                     </view>
                     <connections>
-                        <outlet property="artcileTitle" destination="cvX-rY-MQA" id="Y3Q-Dh-hVD"/>
-                        <outlet property="btnBack" destination="7ch-2e-Uyo" id="aSb-nI-1UH"/>
-                        <outlet property="btnShare" destination="MFg-Ew-dew" id="7g7-6a-9gZ"/>
+                        <outlet property="loadingView" destination="8nR-6V-9v6" id="WOt-Yl-D4j"/>
+                        <outlet property="navigationBar" destination="aFG-4W-oAq" id="UW6-If-sAg"/>
                         <outlet property="webView" destination="nw5-5Y-Rzv" id="k0X-rK-KQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGr-wY-SIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872.8000000000002" y="-340.47976011994007"/>
+            <point key="canvasLocation" x="2240.8000000000002" y="-197.45127436281859"/>
         </scene>
         <!--Websties-->
         <scene sceneID="BwJ-Kw-Xcx">
@@ -559,7 +562,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YpB-lx-E6J">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YpB-lx-E6J">
                                 <rect key="frame" x="177.5" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -755,7 +758,7 @@
                                     <constraint firstAttribute="height" constant="82" id="i8J-8o-sGr"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-W2-17Y">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-W2-17Y">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
