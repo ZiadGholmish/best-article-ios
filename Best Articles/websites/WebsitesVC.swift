@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , ArticleItemSelectedDelegator{
     
     @IBOutlet weak var websitesCollectionView: UICollectionView!
     
@@ -87,6 +87,18 @@ class WebsitesVC: UIViewController , APIManagerWebsitesDelegate , TabSelectedDel
         websitesTab.selectITemAtPosition(position: position)
     }
     
+    func itemSelected(articleItem: ArticleModel) {
+        performSegue(withIdentifier: "ArticleDetailsVC", sender: articleItem)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ArticleDetailsVC" {
+            if let viewController = segue.destination as? ArticleDetailsVC {
+                viewController.selectedArticle = sender as! ArticleModel
+            }
+        }
+    }
+     
     func websitesReceived(data: Any?, error: NSError?) {
          contentLoading.isHidden = true
         if error != nil {

@@ -38,6 +38,8 @@ class ArticleDetailsVC: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func shareArticle(_ sender: Any) {
+        let vc  = UIActivityViewController(activityItems: [selectedArticle.title], applicationActivities: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

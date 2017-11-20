@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , TabSelectedDelegate {
+class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , TabSelectedDelegate , ArticleItemSelectedDelegator {
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var contentLoading: UIActivityIndicatorView!
@@ -52,6 +52,7 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId ,
                                                          for: indexPath) as? CategoriesCell {
             let categoryModel = categories[indexPath.row]
+            cell.articleItemSelected = self
             cell.setArticlesForPage(categoryModel: categoryModel)
             return cell
             
@@ -79,6 +80,19 @@ class CategoriesVC: UIViewController , APIManagerCategoriesDelegate , UICollecti
         categoriesCollectionView.scrollToItem(at: indexPath, at: .right , animated: true)
     }
     
+    func itemSelected(articleItem: ArticleModel) {
+            performSegue(withIdentifier: "ArticleDetailsVC", sender: articleItem)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ArticleDetailsVC" {
+            if let viewController = segue.destination as? ArticleDetailsVC {
+                viewController.selectedArticle = sender as! ArticleModel
+            }
+        }
+    }
+    
+
     func categoriesReceived(data: Any?, error: NSError?) {
          contentLoading.isHidden = true
         if error != nil {

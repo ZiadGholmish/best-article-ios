@@ -12,8 +12,8 @@ class CategoriesCell: UICollectionViewCell , UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var articlesTableView: UITableView!
     private var _currentCategoryModel: CategoryModel?
-    
-    
+    var articleItemSelected: ArticleItemSelectedDelegator?
+
     func setArticlesForPage(categoryModel: CategoryModel)  {
         articlesTableView.delegate = self
         articlesTableView.dataSource = self
@@ -50,5 +50,11 @@ class CategoriesCell: UICollectionViewCell , UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 375
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedArticle = _currentCategoryModel?.articles![indexPath.row]
+        articleItemSelected?.itemSelected(articleItem: selectedArticle!)
+    }
+    
     
 }

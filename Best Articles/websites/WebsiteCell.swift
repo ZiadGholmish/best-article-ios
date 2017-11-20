@@ -12,6 +12,7 @@ class WebsiteCell: UICollectionViewCell , UITableViewDelegate,UITableViewDataSou
     
     @IBOutlet weak var articlesTableView: UITableView!
     private var _currentWebsiteModel: WebsiteModel?
+        var articleItemSelected: ArticleItemSelectedDelegator?
     
     func setArticlesForPage(website: WebsiteModel)  {
         articlesTableView.delegate = self
@@ -46,6 +47,12 @@ class WebsiteCell: UICollectionViewCell , UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 375
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedArticle = _currentWebsiteModel?.articles![indexPath.row]
+        articleItemSelected?.itemSelected(articleItem: selectedArticle!)
     }
     
 }
